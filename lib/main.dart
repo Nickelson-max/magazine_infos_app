@@ -55,7 +55,7 @@ class PageAccueil extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Tu as cliqué sur le bouton principal')),
+            const SnackBar(content: Text('Tu as cliqué dessus')),
           );
         },
         backgroundColor: Colors.pink,
@@ -182,7 +182,7 @@ class PartieRubrique extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Dernières Presses', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.pink)),
+                const Text('Imprimante', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.pink)),
                 const SizedBox(height: 8),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
