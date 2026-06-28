@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../modele/redacteur.dart';
 import '../services/database_manager.dart';
 
-// 15. Créer la classe RedacteursInterface qui étend StatefulWidget
+// 15. Création de la classe RedacteursInterface qui étend StatefulWidget
 class RedacteursInterface extends StatefulWidget {
   const RedacteursInterface({super.key});
 
@@ -108,9 +108,11 @@ class _RedacteursInterfaceState extends State<RedacteursInterface> {
                   );
                   
                   await _dbManager.updateRedacteur(redacteurModifie);
+                  // ignore: use_build_context_synchronously
                   Navigator.pop(context);
                   _chargerRedacteurs(); // Actualiser l'affichage
                   
+                  // ignore: use_build_context_synchronously
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Rédacteur modifié avec succès !')),
                   );
@@ -141,9 +143,11 @@ class _RedacteursInterfaceState extends State<RedacteursInterface> {
               style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
               onPressed: () async {
                 await _dbManager.deleteRedacteur(id);
+                // ignore: use_build_context_synchronously
                 Navigator.pop(context);
                 _chargerRedacteurs(); // Actualiser l'affichage
                 
+                // ignore: use_build_context_synchronously
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('Rédacteur supprimé !')),
                 );
@@ -157,9 +161,9 @@ class _RedacteursInterfaceState extends State<RedacteursInterface> {
   }
   @override
   Widget build(BuildContext context) {
-    // 19. Faire retourner par la méthode build un widget Scaffold
+    //  Faire retourner par la méthode build un widget Scaffold
     return Scaffold(
-      // 20. Configurer l'AppBar selon l'arborescence demandée
+    
       appBar: AppBar(
         backgroundColor: Colors.pink,
         title: const Text(
@@ -167,13 +171,13 @@ class _RedacteursInterfaceState extends State<RedacteursInterface> {
           style: TextStyle(color: Colors.white),
         ),
       ),
-      // 21. Définir le corps du Scaffold avec un Padding de 8 pixels
+    
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        // 22. Utiliser un widget Column pour l'organisation verticale
+      
         child: Column(
           children: [
-            // ZONE SUPÉRIEURE : Formulaire de saisie enveloppé dans un Form
+            //Formulaire de saisie enveloppé dans un Form
             Form(
               key: _formKey,
               child: Card(
@@ -252,6 +256,7 @@ class _RedacteursInterfaceState extends State<RedacteursInterface> {
                               _viderChamps(); // Nettoyage du formulaire
                               _chargerRedacteurs(); // Rafraîchissement de la liste
                               
+                              // ignore: use_build_context_synchronously
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(content: Text('Rédacteur ajouté avec succès !')),
                               );
@@ -278,7 +283,7 @@ class _RedacteursInterfaceState extends State<RedacteursInterface> {
             ),
             const SizedBox(height: 10),
 
-            // ZONE CENTRALE : 3.3. Affichage de la liste des rédacteurs existants
+            // Affichage de la liste des rédacteurs existants
             Expanded(
               child: _redacteursList.isEmpty
                   ? const Center(
@@ -303,7 +308,7 @@ class _RedacteursInterfaceState extends State<RedacteursInterface> {
                                 IconButton(
                                   icon: const Icon(Icons.edit, color: Colors.blue),
                                   onPressed: () {
-                                    // 3.2. Dialogue de modification
+                                    // Dialogue de modification
                                     _afficherDialogueModification(redacteur);
                                   },
                                 ),
@@ -311,7 +316,7 @@ class _RedacteursInterfaceState extends State<RedacteursInterface> {
                                 IconButton(
                                   icon: const Icon(Icons.delete, color: Colors.red),
                                   onPressed: () {
-                                    // 3.4. Dialogue de confirmation de suppression
+                                    // Dialogue de confirmation de suppression
                                     _afficherDialogueSuppression(redacteur.id!);
                                   },
                                 ),
