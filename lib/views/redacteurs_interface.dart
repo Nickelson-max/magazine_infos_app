@@ -126,7 +126,7 @@ class _RedacteursInterfaceState extends State<RedacteursInterface> {
     );
   }
 
-  // 3.4. Boîte de dialogue pour confirmer la suppression
+  // Boîte de dialogue pour confirmer la suppression
   void _afficherDialogueSuppression(int id) {
     showDialog(
       context: context,
@@ -166,6 +166,7 @@ class _RedacteursInterfaceState extends State<RedacteursInterface> {
     
       appBar: AppBar(
         backgroundColor: Colors.pink,
+        centerTitle: true,
         title: const Text(
           'Gestion des rédacteurs',
           style: TextStyle(color: Colors.white),
